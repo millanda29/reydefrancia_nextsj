@@ -18,8 +18,7 @@ jobs:
           sudo yum update -y
           
           # Instalar Docker
-          sudo amazon-linux-extras enable docker
-          sudo yum install docker -y
+          sudo dnf install -y docker
 
           # Iniciar y habilitar Docker
           sudo systemctl start docker

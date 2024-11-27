@@ -17,22 +17,9 @@ jobs:
           # Actualizar el sistema
           sudo yum update -y
           
-          # Instalar dependencias para Docker
-          sudo yum install -y \
-            ca-certificates \
-            curl \
-            gnupg \
-            lsb-release
-
-          # Agregar el repositorio oficial de Docker
-          sudo install -m 0755 -d /etc/apt/keyrings
-          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-          echo \
-            "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-            $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-          
           # Instalar Docker
-          sudo yum install -y docker-ce docker-ce-cli containerd.io
+          sudo amazon-linux-extras enable docker
+          sudo yum install docker -y
 
           # Iniciar y habilitar Docker
           sudo systemctl start docker

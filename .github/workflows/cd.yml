@@ -49,8 +49,10 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: millanda29/reydefrancia_nextsj:latest
-        run: |
-          sudo docker buildx build --file ./Dockerfile --iidfile /home/ec2-user/actions-runner/_work/_temp/docker-actions-toolkit-duhgNF/build-iidfile-b2bac07214.txt --tag millanda29/reydefrancia_nextsj:latest --push .
+          load: false
+          no-cache: false
+          pull: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Paso 4: Detener y eliminar cualquier contenedor anterior
       - name: Stop and remove previous container

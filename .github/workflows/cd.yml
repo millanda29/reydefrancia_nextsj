@@ -56,8 +56,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/reydefrancia_nextsj:latest
             ${{ secrets.DOCKER_USERNAME }}/reydefrancia_nextsj:${{ steps.get_version.outputs.next }}
+            ${{ secrets.DOCKER_USERNAME }}/reydefrancia_nextsj:latest
           load: false
           no-cache: false
           pull: false
